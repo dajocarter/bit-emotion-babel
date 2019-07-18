@@ -1,0 +1,36 @@
+{
+  "name": "spinner",
+  "description": "Spinner component",
+  "license": "",
+  "author": "",
+  "main": "dist/index.js",
+  "directories": {
+    "src": "src"
+  },
+  "scripts": {
+    "build": "babel src -d dist",
+    "build:watch": "babel src --watch -d dist",
+    "prepare": "NODE_ENV=production npm run build"
+  },
+  "dependencies": {
+    "@emotion/core": "~10.0.14",
+    "@emotion/styled": "~10.0.14",
+    "prop-types": "~15.7.2"
+  },
+  "peerDependencies": {
+    "react": "~16.8.6",
+    "react-dom": "~16.8.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "~7.5.0",
+    "@babel/core": "~7.5.4",
+    "@babel/plugin-proposal-class-properties": "~7.5.0",
+    "@babel/preset-env": "~7.5.4",
+    "@babel/preset-react": "~7.0.0",
+    "babel-plugin-emotion": "~10.0.14"
+  },
+  "keywords": [],
+  "publishConfig": {
+    "access": "public"
+  }
+}

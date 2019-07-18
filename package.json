@@ -1,0 +1,91 @@
+{
+  "name": "web-ui",
+  "private": true,
+  "devDependencies": {
+    "@babel/cli": "~7.4.4",
+    "@babel/core": "~7.4.5",
+    "@babel/node": "~7.4.5",
+    "@babel/preset-env": "~7.4.5",
+    "@babel/preset-react": "~7.0.0",
+    "@emotion/babel-preset-css-prop": "~10.0.14",
+    "@storybook/addon-actions": "~5.1.9",
+    "@storybook/addon-knobs": "~5.1.9",
+    "@storybook/addon-links": "~5.1.9",
+    "@storybook/addon-options": "~5.1.9",
+    "@storybook/addons": "~5.1.9",
+    "@storybook/react": "~5.1.9",
+    "await-exec": "~0.1.2",
+    "babel-eslint": "~10.0.2",
+    "babel-jest": "~24.8.0",
+    "babel-loader": "~8.0.6",
+    "babel-plugin-module-resolver": "~3.2.0",
+    "babel-plugin-emotion": "~10.0.14",
+    "chalk": "~2.4.2",
+    "core-js": "~3.1.4",
+    "enzyme": "~3.10.0",
+    "enzyme-adapter-react-16": "~1.14.0",
+    "eslint": "~6.0.1",
+    "eslint-config-standard": "~12.0.0",
+    "eslint-plugin-emotion": "~10.0.14",
+    "eslint-plugin-import": "~2.18.0",
+    "eslint-plugin-node": "~9.1.0",
+    "eslint-plugin-promise": "~4.2.1",
+    "eslint-plugin-react": "~7.14.2",
+    "eslint-plugin-standard": "~4.0.0",
+    "fs-extra": "~8.0.1",
+    "jest": "~24.8.0",
+    "lerna": "~3.15.0",
+    "lodash": "~4.17.11",
+    "pre-commit": "~1.2.2",
+    "raf": "~3.4.1",
+    "react-test-renderer": "~16.8.6",
+    "regenerator-runtime": "~0.13.2",
+    "simple-git": "~1.116.0",
+    "standard": "~12.0.1",
+    "storybook-deploy": "~0.1.0"
+  },
+  "dependencies": {
+    "@emotion/core": "~10.0.14",
+    "@emotion/styled": "~10.0.14",
+    "document-visibility": "~1.0.1",
+    "pole": "~1.2.0",
+    "prop-types": "~15.7.2",
+    "react": "~16.8.6",
+    "react-dom": "~16.8.6",
+    "styled-jsx": "~2.2.7"
+  },
+  "scripts": {
+    "deploy-storybook": "storybook-deploy",
+    "build-storybook": "build-storybook -o .out",
+    "storybook": "start-storybook -p 9001",
+    "build:watch": "lerna exec --parallel -- yarn run build:watch",
+    "build": "lerna exec --parallel -- yarn run build",
+    "start": "yarn run build:watch & yarn run storybook",
+    "dev": "yarn run start",
+    "test": "node ./scripts/linter.js && jest",
+    "create-package": "@babel/node scripts/create-package"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "it"
+    ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(svg)$": "<rootDir>/scripts/file-mock.js"
+    },
+    "setupFiles": [
+      "raf/polyfill"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/scripts/test-setup.js"
+    ]
+  },
+  "pre-commit": [
+    "test"
+  ],
+  "workspaces": [
+    "packages/*"
+  ]
+}
