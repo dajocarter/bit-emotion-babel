@@ -62,7 +62,6 @@
     "build": "lerna exec --parallel -- yarn run build",
     "start": "yarn run build:watch & yarn run storybook",
     "dev": "yarn run start",
-    "test": "node ./scripts/linter.js && jest",
     "create-package": "@babel/node scripts/create-package"
   },
   "standard": {
